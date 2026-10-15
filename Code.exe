@@ -1,0 +1,151 @@
+programa
+{
+	funcao inicio()
+	{
+		inteiro senha
+		inteiro meses
+		inteiro opcao
+		inteiro i
+
+		real saldo
+		real deposito
+		real saque
+		real saldoProjetado
+
+		saldo = 1000.0
+		opcao = 0
+
+		// Solicita a senha
+		faca
+		{
+			escreva("Digite sua senha: ")
+			leia(senha)
+
+			se(senha != 1234)
+			{
+				escreva("Senha incorreta! Tente novamente.\n")
+			}
+
+		} enquanto(senha != 2010)
+
+		escreva("\nAcesso permitido!\n")
+
+		// Menu principal
+		enquanto(opcao != 5)
+		{
+			escreva("\n========== CAIXA ELETRONICO ==========\n")
+			escreva("1 - Consultar saldo\n")
+			escreva("2 - Depositar\n")
+			escreva("3 - Sacar\n")
+			escreva("4 - Simular rendimento\n")
+			escreva("5 - Sair\n")
+			escreva("======================================\n")
+			escreva("Escolha uma opcao: ")
+			leia(opcao)
+
+			escolha(opcao)
+			{
+				// Consultar saldo
+				caso 1:
+					escreva("\nSaldo atual: R$ ", saldo, "\n")
+					pare
+
+				// Depositar
+				caso 2:
+					faca
+					{
+						escreva("\nDigite o valor do deposito: R$ ")
+						leia(deposito)
+
+						se(deposito <= 0)
+						{
+							escreva("O valor do deposito deve ser maior que zero.\n")
+						}
+
+					} enquanto(deposito <= 0)
+
+					saldo = saldo + deposito
+
+					escreva("Deposito realizado com sucesso!\n")
+					escreva("Novo saldo: R$ ", saldo, "\n")
+
+					pare
+
+				// Sacar
+				caso 3:
+					escreva("\nDigite o valor do saque: R$ ")
+					leia(saque)
+
+					se(saque > 0 e saque <= saldo)
+					{
+						saldo = saldo - saque
+
+						escreva("Saque realizado com sucesso!\n")
+						escreva("Novo saldo: R$ ", saldo, "\n")
+					}
+					senao se(saque > saldo)
+					{
+						escreva("Saldo insuficiente!\n")
+					}
+					senao
+					{
+						escreva("Valor de saque invalido!\n")
+					}
+
+					pare
+
+				// Simular rendimento
+				caso 4:
+					faca
+					{
+						escreva("\nDigite a quantidade de meses (1 a 12): ")
+						leia(meses)
+
+						se(meses < 1 ou meses > 12)
+						{
+							escreva("Quantidade invalida! Digite entre 1 e 12 meses.\n")
+						}
+
+					} enquanto(meses < 1 ou meses > 12)
+
+					saldoProjetado = saldo
+
+					escreva("\n===== SIMULACAO DE RENDIMENTO =====\n")
+
+					para(i = 1; i <= meses; i++)
+					{
+						saldoProjetado = saldoProjetado * 1.01
+
+						escreva("Mes ", i, " - R$ ", saldoProjetado, "\n")
+					}
+
+					escreva("====================================\n")
+					escreva("Saldo real da conta: R$ ", saldo, "\n")
+					escreva("A simulacao nao alterou o saldo real.\n")
+
+					pare
+
+				// Sair
+				caso 5:
+					escreva("\nObrigado por utilizar o caixa eletronico!\n")
+					pare
+
+				// Opcao invalida
+				caso contrario:
+					escreva("\nOpcao invalida! Escolha uma opcao de 1 a 5.\n")
+					pare
+			}
+		}
+	}
+}
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 378; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

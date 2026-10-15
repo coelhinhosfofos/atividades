@@ -1,0 +1,137 @@
+programa
+{
+	funcao inicio()
+	{
+		cadeia nome, sobrenome
+		cadeia placa_veiculo, tipo_veiculo
+
+		inteiro horas_estac
+		inteiro cadastrado, cupom, pernoite
+
+		real valor_hora
+		real subtotal
+		real desconto
+		real adicional_noturno
+		real valor_final
+		real valor_pago
+		real troco
+		real faltante
+
+		escreva("Digite seu nome: ")
+		leia(nome)
+
+		escreva("Digite seu sobrenome: ")
+		leia(sobrenome)
+
+		escreva("Digite a placa do veículo: ")
+		leia(placa_veiculo)
+
+		escreva("Digite o tipo do veículo (carro, moto ou utilitario): ")
+		leia(tipo_veiculo)
+
+		escreva("Digite a quantidade de horas estacionadas: ")
+		leia(horas_estac)
+
+		// Valor por hora
+		se(tipo_veiculo == "carro")
+		{
+			valor_hora = 8
+		}
+		senao se(tipo_veiculo == "moto")
+		{
+			valor_hora = 5
+		}
+		senao se(tipo_veiculo == "utilitario")
+		{
+			valor_hora = 12
+		}
+		senao
+		{
+			escreva("Tipo de veículo inválido.")
+			retorne
+		}
+
+		// Subtotal
+		subtotal = valor_hora * horas_estac
+
+		escreva("O veículo permaneceu durante a noite? (1=Sim / 0=Não): ")
+		leia(pernoite)
+
+		adicional_noturno = 0
+
+		se(pernoite == 1)
+		{
+			adicional_noturno = 20
+		}
+
+		escreva("Cliente cadastrado? (1=Sim / 0=Não): ")
+		leia(cadastrado)
+
+		escreva("Possui cupom? (1=Sim / 0=Não): ")
+		leia(cupom)
+
+		desconto = 0
+
+		// Desconto especial
+		se(cadastrado == 1 e horas_estac >= 5)
+		{
+			desconto = (subtotal + adicional_noturno) * 0.15
+		}
+		// Desconto comum
+		senao se(cupom == 1 ou horas_estac >= 8)
+		{
+			desconto = (subtotal + adicional_noturno) * 0.10
+		}
+
+		valor_final = subtotal + adicional_noturno - desconto
+
+		// Mostrar quanto o cliente deve pagar
+		escreva("\n====================================")
+		escreva("\nValor total a pagar: R$ ", valor_final)
+		escreva("\n====================================")
+
+		escreva("\nDigite o valor pago pelo cliente: R$ ")
+		leia(valor_pago)
+
+		escreva("\n========= RECIBO =========")
+		escreva("\nMotorista: ", nome, " ", sobrenome)
+		escreva("\nPlaca: ", placa_veiculo)
+		escreva("\nTipo do veículo: ", tipo_veiculo)
+		escreva("\nHoras: ", horas_estac)
+		escreva("\nValor por hora: R$ ", valor_hora)
+		escreva("\nSubtotal: R$ ", subtotal)
+		escreva("\nAdicional noturno: R$ ", adicional_noturno)
+		escreva("\nDesconto: R$ ", desconto)
+		escreva("\nValor final: R$ ", valor_final)
+		escreva("\nValor pago: R$ ", valor_pago)
+
+		se(valor_pago >= valor_final)
+		{
+			troco = valor_pago - valor_final
+
+			escreva("\nTroco: R$ ", troco)
+			escreva("\nSituação do pagamento: PAGAMENTO APROVADO")
+		}
+		senao
+		{
+			faltante = valor_final - valor_pago
+
+			escreva("\nValor faltante: R$ ", faltante)
+			escreva("\nSituação do pagamento: PAGAMENTO INSUFICIENTE")
+		}
+	}
+}
+
+
+
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 2669; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

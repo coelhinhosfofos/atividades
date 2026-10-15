@@ -1,0 +1,71 @@
+programa
+{
+	
+	funcao inicio()
+	{
+		//cadeia texto //variavel tipo texto 
+		//escreva("Exibir na tela")//escreva exibir na tela
+		//leia(texto)//leia armazena o valor digitado
+
+		/* 
+		 * Condicionais, são uma Lógica de programação
+		 * que permite tomar decisôes com base em
+		 * uma condição, sendo ela verdadeira ou falsa
+		 * quando falamos de condições usamos o se(if)]
+		 * senão(else) e o senão se(else if)
+		 */
+		 cadeia clima = "chuva"
+		 se("chuva"=="chuva"){
+		 	escreva("\nPego guarda-chuva")
+		 }senao se("ensolarado"=="ensolarado"){
+		 	escreva("Não pego guarda-chuva")
+		 }senao{
+		 	escreva("Clima confuso")
+		 }
+		 cadeia luz = "vermelho"
+		 se("vermelho"=="vermelho"){
+		 	escreva("\nPare")
+		 }senao se("verde"=="verde"){
+		 	escreva("\nVá")
+		 }senao{
+		 	escreva("Espere")
+		 }
+		 inteiro idade = 18
+		se (idade == 18) {
+			escreva("\nPode dirigir")
+		}senao se(idade < 18){
+			escreva("Não pode dirigir")
+			}
+
+		logico cadastro=verdadeiro
+			se(cadastro){
+				escreva("\nCadastro ativo")
+			}senao{
+				escreva("\nCadastro inativo")
+			}
+			/*operadores logicos e e ou
+			 * E - necessita que as duas ou mais condições
+			 * sejam todas verdadeiras ou todas falsas
+			 * OU - necessita que apenas uma das condições
+			 * seja verdadeira
+			 * AND ou OR
+			 * && ou ||
+			 */
+
+			 inteiro n1=1, n2=2, n3=3
+
+			 se(n1<5 e n2<5 e n3<5){
+			 	escreva("\nValores menores que cinco")
+			 }senao{
+			 	escreva("\nAlgum dos valores é maior que cinco")
+			 }
+			 inteiro v4=10, v5=11, v6=3
+			 se(v4<15 ou v5<15 ou v6<5){
+			 	escreva("\nPelo menos um dos valores é menor que cinco")
+			 }senao{
+			 	escreva("\nNenhum dos valores é menor que cinco")
+			 }
+			 
+	}
+
+}

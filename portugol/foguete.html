@@ -1,0 +1,30 @@
+programa
+{
+    funcao inicio()
+    {
+        inteiro contador
+
+        escreva("•········INFORME UM NÚMERO DE 5 A 20: ·········•")
+        leia(contador)
+
+        enquanto (contador < 5 ou contador > 20)
+        {
+            escreva("\n•········ERRO! O NÚMERO TEM QUE ESTAR ENTRE 5 E 20.·········•\n")
+            escreva("•········INFORME UM NÚMERO DE 5 A 20: ·········•")
+            leia(contador)
+        }
+        
+        enquanto (contador >= 0)
+        {
+            limpa()
+
+            escreva("LANÇAMENTO EM: ", contador)
+
+            contador = contador - 1
+        }
+
+
+        limpa()
+        escreva("•········FOGUETE LANÇADO COM SUCESSO!·········•")
+    }
+}
